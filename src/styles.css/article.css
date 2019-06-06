@@ -3,3 +3,6 @@
     align-items: center;
     cursor: pointer;
 }
+.article-item.item img{
+    max-width: 80px;
+}

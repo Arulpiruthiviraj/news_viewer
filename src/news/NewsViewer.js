@@ -13,7 +13,7 @@ const NewsViewer=({selectedArticle})=> {
         <div>
             <div className={"ui segment"}>
                 <div>
-                    <object type="text/html" data={selectedArticle.url} width="800px" height="600px" >
+                    <object type="text/html" data={selectedArticle.url} width="800px" height="1000px"  >
                     </object>
                 </div>
             </div>

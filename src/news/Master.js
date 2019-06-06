@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import SearchBar from "./SearchBar";
 import NewsApi, {NewsApiKey} from "../apis/NewsApi";
 import NewsList from "./NewsList";
@@ -8,7 +8,11 @@ function Master() {
     const [searchResults, setSearchResults] = useState('');
     const [selectedArticle, setSelectedArticle] = useState(null);
 
-    const onSearchSubmit=async term=>{
+     useEffect(( ) => {
+        onSearchSubmit('World');
+      },[]);
+
+     const onSearchSubmit=async term=>{
         const response= await NewsApi.get('',{
             params:{
                 q:term,
@@ -16,6 +20,7 @@ function Master() {
             }
         });
         setSearchResults(response.data.articles);
+        setSelectedArticle(response.data.articles[0])
     };
     const onArticleSelect=article=>{
         setSelectedArticle(article)
